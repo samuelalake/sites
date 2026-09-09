@@ -1,0 +1,10 @@
+{
+  "description": "Provides a user-friendly platform to transform design files into fully functional websites, enabling seamless web presence creation for designers and businesses.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

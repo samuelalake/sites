@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: "SF Pro:Semibold";
+  font-style: normal;
+  font-weight: 590;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+@font-face {
+  font-family: "SF Pro:Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+@font-face {
+  font-family: "SF Pro:Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+@font-face {
+  font-family: "SF Pro:Condensed Heavy";
+  font-style: normal;
+  font-weight: 870;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+@font-face {
+  font-family: "SF Pro:Expanded Regular";
+  font-style: normal;
+  font-weight: 410;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+@font-face {
+  font-family: "SF Pro:Condensed Bold";
+  font-style: normal;
+  font-weight: 760;
+  src: url("https://static.figma.com/font/SF-Pro_1") format("woff2");
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
+
+.intro-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.intro-video-link img {
+  width: 36px;
+  height: 36px;
+}
+
+.quote-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  width: 40px;
+  height: 32px;
+  background-image: var(--quote-caret);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.quote-bubble-left::after {
+  left: 20px;
+}
+
+.quote-bubble-right::after {
+  right: 20px;
+  transform: scaleX(-1);
+}
+
+.quote-attribution-left {
+  padding-left: 64px;
+}
+
+.quote-attribution-right {
+  justify-content: flex-end;
+  padding-right: 64px;
+}
+
+.quote-mark {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: -4px;
+}
+
+.quote-mark-start {
+  margin-right: 2px;
+  transform: rotate(180deg);
+}
+
+.quote-mark-end {
+  margin-left: 2px;
+}
+
+.quote-bubble mark,
+.quote-bubble .underline {
+  color: inherit;
+  background: transparent;
+  text-decoration-color: rgba(113, 153, 209, 0.25);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
