@@ -4,6 +4,7 @@ import imgCanvas1 from "@/imports/6734c29756df0701cfaa1ba52d085596cb4c9718.png";
 import imgCanvas2 from "@/imports/37216b41150db366a7772123252cf180fe345da4.png";
 import imgImageIllustration1 from "@/imports/d16a3f665ef290f40b18618051fa493d4347fb08.png";
 import imgImageIllustration2 from "@/imports/beb4da6ebcb80ec5cb3ab4b0a556e62f10be91e1.png";
+import HorizontalScroller from "@/components/HorizontalScroller";
 
 const featureTiles = [
   {
@@ -40,9 +41,9 @@ function BenchmarkChart() {
           <div className="w-[180px] shrink-0">
             <p className={`font-['Geist:Medium',sans-serif] font-medium text-[16px] leading-[24px] ${i === 0 ? "text-[#090b0c]" : "text-[#737373]"}`}>{label}</p>
           </div>
-          <div className="flex-1 h-[12px] bg-[#f5f5f5] rounded-full overflow-hidden">
+          <div className="flex-1 h-[18px] bg-[#f0f0f0] overflow-hidden">
             <div
-              className="h-full rounded-full transition-all"
+              className="h-full transition-all"
               style={{ width: `${(score / max) * 100}%`, background: color }}
             />
           </div>
@@ -82,9 +83,9 @@ export default function AnythingSection() {
           </p>
         </div>
         <div className="border-x border-[rgba(0,0,0,0.06)] pb-16 md:pb-24">
-          <div className="grid md:grid-cols-3 gap-6 px-px">
+          <HorizontalScroller label="browser capabilities">
             {featureTiles.map(({ img, title, desc }) => (
-              <div key={title} className="flex flex-col">
+              <div key={title} className="flex min-w-[320px] snap-start flex-col lg:min-w-0">
                 <div className="bg-[#f5f5f5] h-[260px] md:h-[320px] rounded-[11.2px] overflow-hidden">
                   <img src={img} alt={title} className="size-full object-contain" />
                 </div>
@@ -96,7 +97,7 @@ export default function AnythingSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </HorizontalScroller>
         </div>
         <div className="border-b border-dashed border-[rgba(0,0,0,0.06)]" />
         <div className="border-x border-[rgba(0,0,0,0.06)] px-5 md:px-[49px] pb-16 md:pb-24 overflow-hidden">
@@ -110,14 +111,14 @@ export default function AnythingSection() {
             </p>
           </div>
           <BenchmarkChart />
-          <div className="flex items-center gap-2 mt-8 overflow-x-auto pb-2">
-            <div className="bg-[#f5f5f5] h-[40px] px-[13px] flex items-center rounded-[16.8px]">
+          <div className="mx-auto mt-8 flex w-fit items-center rounded-[14px] bg-[#f5f5f5] p-1">
+            <div className="bg-white h-[36px] px-[13px] flex items-center rounded-[10px] shadow-sm">
               <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[#090b0c]">Online-Mind2Web</p>
             </div>
-            <button className="h-[40px] px-[13px] flex items-center rounded-[16.8px]">
+            <button className="h-[36px] px-[13px] flex items-center rounded-[10px]">
               <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[rgba(9,11,12,0.6)]">BU Bench v1</p>
             </button>
-            <button className="h-[40px] px-[13px] flex items-center rounded-[16.8px]">
+            <button className="h-[36px] px-[13px] flex items-center rounded-[10px]">
               <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[rgba(9,11,12,0.6)]">Odyssey</p>
             </button>
           </div>
@@ -137,15 +138,15 @@ export default function AnythingSection() {
           </div>
           <div className="relative flex justify-center pb-0 overflow-hidden h-[330px] md:h-[384px]">
             <div className="relative min-w-[760px] md:min-w-0 max-w-[896px] w-full mx-auto overflow-hidden h-full origin-top-left scale-[0.62] md:scale-100">
-              <div className="absolute left-0 top-4 bg-[#f5f5f5] rounded-[16.8px] max-w-[320px] px-4 py-[10px] z-10">
+              <div className="memory-prompt absolute left-0 top-4 bg-[#f5f5f5] rounded-[16.8px] max-w-[320px] px-4 py-[10px] z-10">
                 <p className="font-['Geist:Medium',sans-serif] font-medium text-[16px] leading-[24px] text-[#090b0c] w-[288px]">
                   Find the candidate I opened yesterday and prep interview notes
                 </p>
               </div>
-              <div className="absolute left-[352px] top-10 opacity-60 overflow-hidden rounded-tl-[16.8px] rounded-tr-[16.8px] w-[432px] h-[384px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border-t border-l border-r border-[rgba(0,0,0,0.08)]">
+              <div className="memory-panel-back absolute left-[352px] top-10 opacity-60 overflow-hidden rounded-tl-[16.8px] rounded-tr-[16.8px] w-[432px] h-[384px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border-t border-l border-r border-[rgba(0,0,0,0.08)]">
                 <img src={imgImageIllustration1} alt="" className="size-full object-cover" />
               </div>
-              <div className="absolute left-[464px] top-0 overflow-hidden rounded-tl-[16.8px] rounded-tr-[16.8px] w-[432px] h-[384px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border-t border-l border-r border-[rgba(0,0,0,0.08)]">
+              <div className="memory-panel-front absolute left-[464px] top-0 overflow-hidden rounded-tl-[16.8px] rounded-tr-[16.8px] w-[432px] h-[384px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border-t border-l border-r border-[rgba(0,0,0,0.08)]">
                 <img src={imgImageIllustration2} alt="" className="size-full object-cover" />
               </div>
             </div>

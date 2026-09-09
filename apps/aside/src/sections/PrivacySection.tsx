@@ -2,6 +2,7 @@ import svgPaths from "@/imports/svg-rgxehr3pyp";
 import imgImageLocalByDefault from "@/imports/448baf47544e42b9aad533f6cc1617507a86ffef.png";
 import imgImageEncryptedByYourPassword from "@/imports/0e70f2405dba6d6a5980bd2853e6057ec9d66ea0.png";
 import imgImageSandboxWithGuardrails from "@/imports/f22d1e2386f3aaa0595d1dc3e40c672249ba335e.png";
+import HorizontalScroller from "@/components/HorizontalScroller";
 
 const tiles = [
   {
@@ -47,9 +48,9 @@ export default function PrivacySection() {
           </p>
         </div>
         <div className="border-x border-[rgba(0,0,0,0.06)] pb-16 md:pb-24">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 px-px">
+          <HorizontalScroller columns={4} label="privacy and control features">
             {tiles.map(({ img, title, desc }) => (
-              <div key={title} className="flex flex-col">
+              <div key={title} className="flex min-w-[320px] snap-start flex-col lg:min-w-0">
                 <div className="bg-[#f5f5f5] h-[260px] lg:h-[320px] rounded-[11.2px] overflow-hidden flex items-center justify-center">
                   {img ? (
                     <img src={img} alt={title} className="size-full object-cover" />
@@ -71,7 +72,7 @@ export default function PrivacySection() {
                 </div>
               </div>
             ))}
-          </div>
+          </HorizontalScroller>
         </div>
       </div>
     </section>

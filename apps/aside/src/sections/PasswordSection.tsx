@@ -3,6 +3,7 @@ import imgImageSecretsStayInvisibleToAi from "@/imports/e60966a84cad8457ebf2f497
 import imgImageHumanApprovalAtTheEdge from "@/imports/fceaf1c40f58d58b5ce28a18f6495123948ed67b.png";
 import imgImageARecordOfEveryAccess from "@/imports/211775414bdcb4d887aa582ff6a8372d7b253be3.png";
 import imgImagePasswordManager from "@/imports/e6cea731e40fc1ad4edd56c2000e2872c90be9b8.png";
+import HorizontalScroller from "@/components/HorizontalScroller";
 
 const featureTiles = [
   {
@@ -44,9 +45,9 @@ export default function PasswordSection() {
           </p>
         </div>
         <div className="border-x border-[rgba(0,0,0,0.06)] pb-16 md:pb-24">
-          <div className="grid md:grid-cols-3 gap-6 px-px">
+          <HorizontalScroller label="password manager features">
             {featureTiles.map(({ img, title, desc }) => (
-              <div key={title} className="flex flex-col">
+              <div key={title} className="flex min-w-[320px] snap-start flex-col lg:min-w-0">
                 <div className="bg-[#f5f5f5] h-[260px] md:h-[320px] rounded-[11.2px] overflow-hidden">
                   <img src={img} alt={title} className="size-full object-cover" />
                 </div>
@@ -58,7 +59,7 @@ export default function PasswordSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </HorizontalScroller>
         </div>
         <div className="border-b border-dashed border-[rgba(0,0,0,0.06)]" />
         <div className="border-x border-[rgba(0,0,0,0.06)] grid lg:grid-cols-2 gap-0 lg:gap-6">
