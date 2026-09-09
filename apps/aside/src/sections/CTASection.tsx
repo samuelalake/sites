@@ -4,7 +4,7 @@ import imgContainer1 from "@/imports/51ace833ac9ed381049171f0f14f8a589c128e09.pn
 export default function CTASection() {
   return (
     <section>
-      <div className="max-w-[1536px] mx-auto px-24 pt-24">
+      <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-24 pt-16 md:pt-24">
         <div
           className="relative rounded-[22.4px] overflow-hidden"
           style={{ minHeight: 372 }}
@@ -14,8 +14,8 @@ export default function CTASection() {
             alt=""
             className="absolute inset-0 size-full object-cover pointer-events-none"
           />
-          <div className="relative flex flex-col items-center justify-center py-32 px-8 text-center">
-            <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[44px] leading-[48px] text-[#090b0c] max-w-2xl">
+          <div className="relative flex flex-col items-center justify-center py-24 md:py-32 px-5 md:px-8 text-center">
+            <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[34px] leading-[40px] md:text-[44px] md:leading-[48px] text-[#090b0c] max-w-2xl">
               Crafted for both human and agent.
               <br />
               Start using today.

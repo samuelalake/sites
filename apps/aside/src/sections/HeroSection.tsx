@@ -229,7 +229,7 @@ function SubBrowserPanels() {
   return (
     <div className="w-[331px] shrink-0 flex flex-col items-end pr-[18px] pt-[18px] gap-[10.8px] overflow-hidden">
       {panels.map(({ img, logo, label, isLinkedIn }, i) => (
-        <div key={i} className="w-[306px] h-[191.7px] bg-white rounded-[15px] shadow-[0px_0px_0px_0.45px_rgba(10,10,10,0.15),0px_3.6px_5.4px_-0.9px_rgba(0,0,0,0.1)] overflow-hidden shrink-0">
+        <div key={i} className="relative w-[306px] h-[191.7px] bg-white rounded-[15px] shadow-[0px_0px_0px_0.45px_rgba(10,10,10,0.15),0px_3.6px_5.4px_-0.9px_rgba(0,0,0,0.1)] overflow-hidden shrink-0">
           <img src={img} alt={label} className="w-full h-full object-cover" />
           <div className="absolute top-0 left-0 right-0 h-[28.8px] bg-[rgba(229,229,229,0.8)] flex items-center gap-[5.4px] px-[10.8px] rounded-t-[15px]">
             {logo ? (
@@ -278,24 +278,26 @@ function BrowserMockup() {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[993px] rounded-[33.6px] overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]">
+    <section className="relative min-h-[620px] md:min-h-[760px] lg:min-h-[993px] rounded-[24px] md:rounded-[33.6px] overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]">
       <div className="absolute inset-0 bg-[#f5f5f5] rounded-[33.6px]" />
       <img
         src={imgContainer}
         alt=""
         className="absolute inset-0 size-full object-cover rounded-[33.6px] pointer-events-none"
       />
-      <div className="relative flex flex-col items-center pt-[120px] pb-16 px-6">
+      <div className="relative flex flex-col items-center pt-[132px] md:pt-[120px] pb-12 md:pb-16 px-5">
         <YCBadge />
-        <h1 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[48px] leading-[52px] text-[#090b0c] text-center tracking-[-0.48px] mt-8 mb-8 max-w-3xl">
+        <h1 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[38px] leading-[42px] md:text-[48px] md:leading-[52px] text-[#090b0c] text-center tracking-[-0.48px] mt-8 mb-8 max-w-3xl">
           The most intelligent AI assistant,
           <br />
-          {" but it's a browser."}
+          {" but it’s a browser."}
         </h1>
         <DownloadButton />
       </div>
-      <div className="relative px-[60px] pb-[71px]">
-        <BrowserMockup />
+      <div className="relative px-5 md:px-[60px] pb-0 md:pb-[71px] overflow-hidden h-[260px] sm:h-[410px] md:h-auto">
+        <div className="min-w-[920px] origin-top-left scale-[0.38] sm:scale-[0.62] md:min-w-0 md:scale-100">
+          <BrowserMockup />
+        </div>
       </div>
     </section>
   );

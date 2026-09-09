@@ -58,9 +58,9 @@ function BenchmarkChart() {
 export default function AnythingSection() {
   return (
     <section className="border-b border-[rgba(0,0,0,0.06)]">
-      <div className="max-w-[1536px] mx-auto px-24">
+      <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-24">
         <div className="border-x border-[rgba(0,0,0,0.06)] bg-gradient-to-b from-[#fafafa] to-white">
-          <div className="px-[49px] pt-24 pb-6">
+          <div className="px-5 md:px-[49px] pt-20 md:pt-24 pb-10 md:pb-6">
             <div className="flex items-center justify-center gap-[2px] mb-6">
               <p className="font-['Geist:Medium',sans-serif] font-medium text-[16px] leading-[24px] text-[#00a6f4]">Unlimited capability</p>
               <div className="size-[16px]">
@@ -69,18 +69,23 @@ export default function AnythingSection() {
                 </svg>
               </div>
             </div>
-            <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[44px] leading-[48px] text-[#090b0c] text-center">
+            <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[34px] leading-[40px] md:text-[44px] md:leading-[48px] text-[#090b0c] text-center">
               Anything you do in a browser,
               <br />
               Aside can do for you.
             </h2>
           </div>
         </div>
-        <div className="border-x border-[rgba(0,0,0,0.06)] pb-24">
-          <div className="flex gap-6 px-px">
+        <div className="border-x border-[rgba(0,0,0,0.06)] px-5 md:px-12 lg:px-[169px] py-16 md:py-24">
+          <p className="font-['Geist:Regular',sans-serif] font-normal text-[18px] leading-[28px] text-[#090b0c] max-w-[703px]">
+            Unlike other AI agents that rely on integrations, Aside just uses websites and accounts directly, just like you do. That means you can ask any task in your mind anytime you need. The only wall is the imagination.
+          </p>
+        </div>
+        <div className="border-x border-[rgba(0,0,0,0.06)] pb-16 md:pb-24">
+          <div className="grid md:grid-cols-3 gap-6 px-px">
             {featureTiles.map(({ img, title, desc }) => (
-              <div key={title} className="flex-1 flex flex-col">
-                <div className="bg-[#f5f5f5] h-[320px] rounded-[11.2px] overflow-hidden">
+              <div key={title} className="flex flex-col">
+                <div className="bg-[#f5f5f5] h-[260px] md:h-[320px] rounded-[11.2px] overflow-hidden">
                   <img src={img} alt={title} className="size-full object-contain" />
                 </div>
                 <div className="px-4 py-5">
@@ -93,23 +98,19 @@ export default function AnythingSection() {
             ))}
           </div>
         </div>
-        <div className="border-x border-[rgba(0,0,0,0.06)] px-[169px] py-24">
-          <p className="font-['Geist:Regular',sans-serif] font-normal text-[18px] leading-[28px] text-[#090b0c] max-w-[703px]">
-            Unlike other AI agents that rely on integrations, Aside just uses websites and accounts directly, just like you do. That means you can ask any task in your mind anytime you need. The only wall is the imagination.
-          </p>
-        </div>
         <div className="border-b border-dashed border-[rgba(0,0,0,0.06)]" />
-        <div className="border-x border-[rgba(0,0,0,0.06)] px-[49px] pb-24">
+        <div className="border-x border-[rgba(0,0,0,0.06)] px-5 md:px-[49px] pb-16 md:pb-24 overflow-hidden">
           <div className="pt-12 mb-8">
             <h3 className="font-['displayFont:Medium','Plus_Jakarta_Sans',sans-serif] font-medium text-[30px] leading-[40px] text-[#090b0c]">
               The SOTA browser agent.
             </h3>
-            <a href="#" className="font-['Geist:Medium',sans-serif] font-medium text-[18px] leading-[28px] text-[#00a6f4] underline">
-              Learn more
-            </a>
+            <p className="font-['Geist:Regular',sans-serif] text-[16px] leading-[24px] text-[#737373] mt-3 max-w-[800px]">
+              Aside ranked #1 on three browser agent benchmarks: Online-Mind2Web, BU-Bench-V1, and Odysseys, surpassing OpenAI, Anthropic, and Browser Use.{" "}
+              <a href="#" className="font-['Geist:Medium',sans-serif] font-medium text-[#00a6f4] underline">Learn more</a>
+            </p>
           </div>
           <BenchmarkChart />
-          <div className="flex items-center gap-2 mt-8">
+          <div className="flex items-center gap-2 mt-8 overflow-x-auto pb-2">
             <div className="bg-[#f5f5f5] h-[40px] px-[13px] flex items-center rounded-[16.8px]">
               <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[#090b0c]">Online-Mind2Web</p>
             </div>
@@ -122,8 +123,8 @@ export default function AnythingSection() {
           </div>
         </div>
         <div className="border-b border-dashed border-[rgba(0,0,0,0.06)]" />
-        <div className="border-x border-[rgba(0,0,0,0.06)] bg-gradient-to-b from-white to-[#fafafa]">
-          <div className="px-[169px] py-16">
+        <div className="border-x border-[rgba(0,0,0,0.06)] bg-gradient-to-b from-white to-[#fafafa] overflow-hidden">
+          <div className="px-5 md:px-12 lg:px-[169px] py-14 md:py-16">
             <h3 className="font-['displayFont:Medium','Plus_Jakarta_Sans',sans-serif] font-medium text-[30px] leading-[40px] text-[#090b0c]">
               {"Memory that knows what you're working on."}
             </h3>
@@ -134,8 +135,8 @@ export default function AnythingSection() {
               <a href="#" className="text-[#00a6f4] underline">Learn more</a>
             </p>
           </div>
-          <div className="relative flex justify-center pb-0 overflow-hidden h-[384px]">
-            <div className="relative max-w-[896px] w-full mx-auto overflow-hidden h-full">
+          <div className="relative flex justify-center pb-0 overflow-hidden h-[330px] md:h-[384px]">
+            <div className="relative min-w-[760px] md:min-w-0 max-w-[896px] w-full mx-auto overflow-hidden h-full origin-top-left scale-[0.62] md:scale-100">
               <div className="absolute left-0 top-4 bg-[#f5f5f5] rounded-[16.8px] max-w-[320px] px-4 py-[10px] z-10">
                 <p className="font-['Geist:Medium',sans-serif] font-medium text-[16px] leading-[24px] text-[#090b0c] w-[288px]">
                   Find the candidate I opened yesterday and prep interview notes

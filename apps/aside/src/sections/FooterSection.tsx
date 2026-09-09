@@ -35,6 +35,14 @@ const footerColumns = [
       { label: "Careers", external: true },
     ],
   },
+  {
+    heading: "",
+    links: [
+      { label: "Pricing" },
+      { label: "Terms of Service" },
+      { label: "Privacy Policy" },
+    ],
+  },
 ];
 
 function ExternalArrow() {
@@ -48,36 +56,11 @@ function ExternalArrow() {
 export default function FooterSection() {
   return (
     <footer className="border-t border-[rgba(0,0,0,0.06)]">
-      <div className="max-w-[1536px] mx-auto px-24 py-24">
-        <div className="flex items-start justify-between mb-12">
-          <div className="relative h-[36px] w-[108px]">
-            <svg className="h-full" fill="none" viewBox="0 0 108 36" preserveAspectRatio="xMidYMid meet">
-              <g>
-                <path clipRule="evenodd" d={svgPaths.p1392f280} fill="#090B0C" fillRule="evenodd" />
-                <path d={svgPaths.p817bb00} fill="#090B0C" />
-                <path d={svgPaths.p29c2b800} fill="#090B0C" />
-                <path d={svgPaths.p23e55d80} fill="#090B0C" />
-                <path d={svgPaths.p5e74d00} fill="#090B0C" />
-                <path d={svgPaths.p23e27e00} fill="#090B0C" />
-              </g>
-            </svg>
-          </div>
-          <div className="flex items-center gap-6">
-            {["Pricing", "Terms", "Privacy"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[#090b0c] hover:opacity-70 transition-opacity"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="flex gap-0 mb-16">
+      <div className="max-w-[1536px] mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-24">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 mb-16">
           {footerColumns.map((col) => (
-            <div key={col.heading} className="w-[240px] shrink-0">
-              <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[rgba(115,115,115,0.8)] mb-3">
+            <div key={col.heading}>
+              <p className="font-['Geist:Medium',sans-serif] font-medium text-[14px] leading-[20px] text-[rgba(115,115,115,0.8)] mb-3 min-h-[20px]">
                 {col.heading}
               </p>
               <div className="flex flex-col gap-0">
@@ -95,7 +78,7 @@ export default function FooterSection() {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between pt-8 border-t border-[rgba(0,0,0,0.06)]">
+        <div className="flex flex-col-reverse sm:flex-row gap-5 sm:items-center justify-between pt-8 border-t border-[rgba(0,0,0,0.06)]">
           <p className="font-['Geist:Regular',sans-serif] text-[14px] leading-[20px] text-[#737373]">
             © 2026 Aside Computer Inc.
           </p>

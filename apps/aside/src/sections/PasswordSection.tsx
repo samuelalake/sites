@@ -25,8 +25,8 @@ const featureTiles = [
 export default function PasswordSection() {
   return (
     <section className="border-b border-[rgba(0,0,0,0.06)]">
-      <div className="max-w-[1536px] mx-auto px-24">
-        <div className="border-x border-[rgba(0,0,0,0.06)] px-[49px] py-24">
+      <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-24">
+        <div className="border-x border-[rgba(0,0,0,0.06)] px-5 md:px-[49px] py-16 md:py-24">
           <div className="flex items-center gap-[2px] mb-6">
             <p className="font-['Geist:Medium',sans-serif] font-medium leading-[24px] text-[#00a6f4] text-[16px]">Password Manager</p>
             <div className="size-[16px]">
@@ -35,19 +35,19 @@ export default function PasswordSection() {
               </svg>
             </div>
           </div>
-          <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[44px] leading-[48px] text-[#090b0c]">
-            Password that *************.
+          <h2 className="font-['displayFont:Regular','Plus_Jakarta_Sans',sans-serif] text-[34px] leading-[40px] md:text-[44px] md:leading-[48px] text-[#090b0c]">
+            Password that works with AI.
           </h2>
           <p className="font-['Geist:Regular',sans-serif] font-normal text-[18px] leading-[28px] text-[#737373] mt-4 max-w-2xl">
             AI agents stop at login screen and ask you to log in every time.{" "}
             Aside lets agents sign in through autofill, without ever exposing your credentials to the AI.
           </p>
         </div>
-        <div className="border-x border-[rgba(0,0,0,0.06)] pb-24">
-          <div className="flex gap-6 px-px">
+        <div className="border-x border-[rgba(0,0,0,0.06)] pb-16 md:pb-24">
+          <div className="grid md:grid-cols-3 gap-6 px-px">
             {featureTiles.map(({ img, title, desc }) => (
-              <div key={title} className="flex-1 flex flex-col">
-                <div className="bg-[#f5f5f5] h-[320px] rounded-[11.2px] overflow-hidden">
+              <div key={title} className="flex flex-col">
+                <div className="bg-[#f5f5f5] h-[260px] md:h-[320px] rounded-[11.2px] overflow-hidden">
                   <img src={img} alt={title} className="size-full object-cover" />
                 </div>
                 <div className="px-4 py-5">
@@ -61,8 +61,8 @@ export default function PasswordSection() {
           </div>
         </div>
         <div className="border-b border-dashed border-[rgba(0,0,0,0.06)]" />
-        <div className="border-x border-[rgba(0,0,0,0.06)] flex gap-6">
-          <div className="flex-1 flex flex-col px-16 py-12">
+        <div className="border-x border-[rgba(0,0,0,0.06)] grid lg:grid-cols-2 gap-0 lg:gap-6">
+          <div className="flex flex-col px-5 md:px-12 lg:px-16 py-12">
             <div>
               <p className="font-['displayFont:Medium','Plus_Jakarta_Sans',sans-serif] font-medium text-[30px] leading-[36px] text-[#090b0c]">
                 Aside Password Manager
@@ -87,7 +87,7 @@ export default function PasswordSection() {
               </div>
             </div>
           </div>
-          <div className="bg-[#22292b] w-[560px] shrink-0 h-[468px] overflow-hidden">
+          <div className="bg-[#22292b] w-full h-[360px] md:h-[468px] overflow-hidden">
             <img src={imgImagePasswordManager} alt="Password Manager" className="size-full object-cover" />
           </div>
         </div>
