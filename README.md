@@ -8,6 +8,7 @@ Shared home for Samuel's product websites.
 
 ## Planned sites
 
+- `apps/ade-studios`
 - `apps/rem`
 - `apps/trove`
 - `apps/composa`
