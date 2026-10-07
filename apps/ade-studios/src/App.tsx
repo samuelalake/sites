@@ -1,14 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Project = {
   name: string;
   tagline: string;
   href: string;
   action: string;
-  video: string;
-  poster: string;
+  cover: string;
+  coverAlt: string;
   theme: string;
-  orientation: "portrait" | "landscape";
 };
 
 const projects: Project[] = [
@@ -17,81 +16,64 @@ const projects: Project[] = [
     tagline: "A voice-first assistant that turns intent into action.",
     href: "https://apps.apple.com/us/app/rem-ai-personal-assistant/id6759550315",
     action: "View on App Store",
-    video: "/media/rem-agenda.mp4",
-    poster: "/media/rem-agenda.jpg",
+    cover: "/media/rem-cover.svg",
+    coverAlt: "Rem blue assistant mark on a soft gray field",
     theme: "rem",
-    orientation: "portrait",
   },
   {
     name: "Trove",
     tagline: "Save any recipe. Plan the week. Cook without the clutter.",
     href: "https://apps.apple.com/us/app/trove-save-plan-recipes/id6780378124",
     action: "View on App Store",
-    video: "/media/trove-discover.mp4",
-    poster: "/media/trove-discover.jpg",
+    cover: "/media/trove-cover.jpg",
+    coverAlt: "An illustrated Trove recipe book opened to seasonal picks",
     theme: "trove",
-    orientation: "portrait",
   },
   {
     name: "Composa",
     tagline: "A design-native video editor for motion-minded creators.",
     href: "https://composa.app",
     action: "Visit Composa",
-    video: "/media/composa-compose.mp4",
-    poster: "/media/composa-compose.jpg",
+    cover: "/media/composa-cover.png",
+    coverAlt: "Composa video editor interface and wordmark",
     theme: "composa",
-    orientation: "landscape",
   },
 ];
 
-function ProjectVideo({ project }: { project: Project }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !reducedMotion.matches) {
-          void video.play().catch(() => undefined);
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.45 },
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
+function ProjectCover({ project }: { project: Project }) {
   return (
     <div className={`project-visual project-visual--${project.theme}`}>
-      <div className={`project-screen project-screen--${project.orientation}`}>
-        <video
-          ref={videoRef}
-          aria-label={`${project.name} product preview`}
-          loop
-          muted
-          playsInline
-          poster={project.poster}
-          preload="metadata"
-        >
-          <source src={project.video} type="video/mp4" />
-        </video>
-      </div>
+      <img src={project.cover} alt={project.coverAlt} loading="lazy" />
     </div>
   );
 }
 
 function App() {
+  const projectsRef = useRef<HTMLElement>(null);
+  const [projectsInView, setProjectsInView] = useState(false);
+
+  useEffect(() => {
+    const section = projectsRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setProjectsInView(entry.isIntersecting),
+      { rootMargin: "-20% 0px -65%", threshold: 0 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="site-shell">
-      <header className="site-header">
+      <header
+        className={`site-header${projectsInView ? " site-header--open" : ""}`}
+      >
         <a className="wordmark" href="#top" aria-label="Ade Studios home">
-          ADE STUDIOS
+          <span className="wordmark-part wordmark-part--ade">ADE</span>
+          <span className="wordmark-joint" aria-hidden="true" />
+          <span className="wordmark-part wordmark-part--studios">STUDIOS</span>
         </a>
         <a className="header-contact" href="mailto:founders@adestudios.co">
           Contact
@@ -113,7 +95,11 @@ function App() {
           </div>
         </section>
 
-        <section className="projects" aria-labelledby="projects-title">
+        <section
+          className="projects"
+          aria-labelledby="projects-title"
+          ref={projectsRef}
+        >
           <div className="section-heading">
             <h2 id="projects-title">Projects</h2>
           </div>
@@ -127,7 +113,7 @@ function App() {
                   rel="noreferrer"
                   aria-label={`${project.action}: ${project.name}`}
                 >
-                  <ProjectVideo project={project} />
+                  <ProjectCover project={project} />
                 </a>
                 <div className="project-copy">
                   <h3>{project.name}</h3>
