@@ -43,7 +43,7 @@ a {
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
@@ -53,12 +53,14 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--page-padding);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(255, 255, 255, 0.72) 58%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  transition: border-color 350ms ease;
+}
+
+.site-header--open {
+  border-color: rgba(0, 0, 0, 0.07);
 }
 
 .wordmark,
@@ -66,6 +68,46 @@ a {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32em;
+}
+
+.wordmark-part,
+.wordmark-joint {
+  display: inline-block;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wordmark-joint {
+  width: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition:
+    width 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms ease,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header--open .wordmark-part--ade {
+  transform: translateX(-1px);
+}
+
+.site-header--open .wordmark-part--studios {
+  transform: translateX(1px);
+}
+
+.site-header--open .wordmark-joint {
+  width: 12px;
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .header-contact {
@@ -151,6 +193,18 @@ a {
   transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.project-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-media-link:hover .project-visual img {
+  transform: scale(1.015);
+}
+
 .project-media-link:hover .project-visual {
   transform: scale(0.988);
 }
@@ -165,35 +219,6 @@ a {
 
 .project-visual--composa {
   background: #f2f3f6;
-}
-
-.project-screen {
-  position: relative;
-  display: grid;
-  width: 86%;
-  aspect-ratio: 16 / 9;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.84);
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.06);
-}
-
-.project-screen--portrait video {
-  width: 23%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.project-screen--landscape video {
-  width: 100%;
-  height: 100%;
-}
-
-.project-screen video {
-  display: block;
-  object-fit: contain;
 }
 
 .project-copy {
@@ -369,10 +394,6 @@ a {
 
   .project-visual {
     aspect-ratio: 1;
-  }
-
-  .project-screen {
-    width: 88%;
   }
 
   .footer-top {
